@@ -12,7 +12,7 @@ const FinancialInsights = ({ transactions = [] }) => {
   expenses.forEach(t => {
     categoryMap[t.category] = (categoryMap[t.category] || 0) + t.amount;
   });
-
+  
   const topCategoryEntry = Object.entries(categoryMap)
     .sort((a, b) => b[1] - a[1])[0];
 

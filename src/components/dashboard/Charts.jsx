@@ -91,7 +91,6 @@ const CustomPieTooltip = ({ active, payload, data }) => {
 
 
 const Charts = React.memo(({ lineData, year, pieData }) => {
-  console.log(lineData, pieData)
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 container-p mb-10">
 
