@@ -13,7 +13,7 @@ import { calculateSummary } from "../../utils.js/calculations";
 import { useTheme } from "../../hooks/useTheme";
 import { FiChevronDown, FiUser } from "react-icons/fi";
 import { IoSunny, IoSunnyOutline } from "react-icons/io5";
-import {  FiCalendar } from "react-icons/fi";
+import { FiCalendar } from "react-icons/fi";
 import FinancialInsights from "./FinancialInsights";
 import SummaryCardsSkeleton from "./SummaryCardsSkeleton";
 import FinancialInsightsSkeleton from "./FinancialInsightsSkeleton";
@@ -67,7 +67,7 @@ const Dashboard = () => {
 
     URL.revokeObjectURL(url);
   };
-    const handleDownloadAll = () => {
+  const handleDownloadAll = () => {
     downloadJSON(transactions, `all-transactions-${Date.now()}.json`);
   };
 
@@ -86,7 +86,7 @@ const Dashboard = () => {
             <h1 className="sm:text-2xl text-lg font-medium sm:font-semibold dark:text-white">FinanceHub</h1>
             <p className="text-gray-500 text-xs sm:block hidden ">Financial Dashboard</p>
           </div>
-          
+
         </div>
 
         {/* right */}
@@ -97,8 +97,8 @@ const Dashboard = () => {
             className="cursor-pointer sm:p-2 p-1 md:rounded-2xl sm:rounded-xl rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-600/95"
           >
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-            
-              <IoSunny  className={` sm:text-3xl text-lg transition-transform duration-500 ${isDark? "rotate-90 " : "rotate-0" }`}/>
+
+              <IoSunny className={` sm:text-3xl text-lg transition-transform duration-500 ${isDark ? "rotate-90 " : "rotate-0"}`} />
             </span>
 
           </div>
@@ -113,7 +113,7 @@ const Dashboard = () => {
               onChange={(value) => setRole(value)}
               className="sm:w-42 "
               variant="borderless"
-              dropdownMatchSelectWidth={false} 
+              dropdownMatchSelectWidth={false}
               popupClassName="custom-select-dropdown"
               labelRender={({ value }) => (
                 <div className="flex leading-tight sm:gap-2 gap-1 py-1 sm:px-1 px-0 items-center">
@@ -151,41 +151,41 @@ const Dashboard = () => {
           <h1 className="sm:text-3xl text-lg font-semibold dark:text-white">Dashboard Overview</h1>
           <p className="text-gray-500 sm:text-base text-xs">Welcome back! Here's your financial summary.</p>
         </div>
-        
+
         <div>
           {role === "admin" && (
-        <>
-          <button
-            onClick={() => setShowForm(true)}
-            className=" sm:px-3 px-2 py-2 text-xs sm:text-base bg-indigo-600 border hover:bg-indigo-700 text-white sm:rounded-xl rounded-lg sm:font-medium">
-            Add <span className="sm:inline hidden">Transaction</span>
-          </button>
+            <>
+              <button
+                onClick={() => setShowForm(true)}
+                className=" sm:px-3 px-2 py-2 text-xs sm:text-base bg-indigo-600 border hover:bg-indigo-700 text-white sm:rounded-xl rounded-lg sm:font-medium">
+                Add <span className="sm:inline hidden">Transaction</span>
+              </button>
 
-          {showForm && (
-            <TransactionForm
-              formData={formData}
-              handleChange={handleChange}
-              editId={editId}
-              handleAdd={() => handleAdd(formData, editId, resetForm)}
-              onClose={resetForm}
-            />
+              {showForm && (
+                <TransactionForm
+                  formData={formData}
+                  handleChange={handleChange}
+                  editId={editId}
+                  handleAdd={() => handleAdd(formData, editId, resetForm)}
+                  onClose={resetForm}
+                />
+              )}
+            </>
           )}
-        </>
-      )}
-              
+
         </div>
 
       </div>
-      
+
       {transactions.length === 0 ? (
-          <SummaryCardsSkeleton />
-        ) : (
-          <SummaryCards 
-            balance={balance} 
-            totalIncome={totalIncome} 
-            totalExpense={totalExpense} 
-          />
-        )}
+        <SummaryCardsSkeleton />
+      ) : (
+        <SummaryCards
+          balance={balance}
+          totalIncome={totalIncome}
+          totalExpense={totalExpense}
+        />
+      )}
 
       <div className="container-p">
         {transactions.length === 0 ? (
@@ -195,7 +195,7 @@ const Dashboard = () => {
         )}
       </div>
       <div className="flex gap-2 my-4 container-p flex-nowrap">
-          
+
         {/* Year */}
         <div className="w-1/2 sm:w-auto flex items-center gap-1 bg-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-700 rounded-lg sm:rounded-xl">
           <Select
@@ -230,7 +230,7 @@ const Dashboard = () => {
           />
         </div>
 
-          
+
         {/* Month */}
         <div
           className={`w-1/2 sm:w-auto flex items-center gap-1 rounded-lg sm:rounded-xl transition-all duration-200
@@ -273,7 +273,7 @@ const Dashboard = () => {
             )}
             options={[
               { value: "", label: "All Months" },
-              ...["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map(
+              ...["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map(
                 (m) => ({ value: m, label: m })
               ),
             ]}
@@ -282,79 +282,79 @@ const Dashboard = () => {
 
       </div>
 
-      
+
       {transactions.length === 0 ? (<ChartsSkeleton />) : (<Charts lineData={lineData} year={year} pieData={pieData} />)}
 
       <div className="container-p">
-          <div className="flex justify-between gap-4 sm:flex-row flex-col mb-2">
-            <div>
-              <h2 className="text-4xl font-semibold dark:text-white">Transactions</h2>
-              {role === "viewer" && (
-                <p className="text-sm text-gray-500">
-                  Read-only access
-                </p>
-              )}
-            </div>
-            
-            {/* Download Buttons */}
-            <div className="flex gap-2">
+        <div className="flex justify-between gap-4 sm:flex-row flex-col mb-2">
+          <div>
+            <h2 className="text-4xl font-semibold dark:text-white">Transactions</h2>
+            {role === "viewer" && (
+              <p className="text-sm text-gray-500">
+                Read-only access
+              </p>
+            )}
+          </div>
 
-              <button
-                onClick={handleDownloadAll}
-                className="flex items-center gap-1 px-3 py-2 text-xs sm:text-sm 
+          {/* Download Buttons */}
+          <div className="flex gap-2">
+
+            <button
+              onClick={handleDownloadAll}
+              className="flex items-center gap-1 px-3 py-2 text-xs sm:text-sm 
                 bg-gray-200 hover:bg-gray-300 
                 dark:bg-gray-700 dark:hover:bg-gray-600 
                 text-gray-800 dark:text-white 
                 rounded-lg sm:rounded-xl transition"
-              >
-                Download All
-              </button>
-            
-              <button
-                onClick={handleDownloadFiltered}
-                className="flex items-center gap-1 px-3 py-2 text-xs sm:text-sm 
+            >
+              Download All
+            </button>
+
+            <button
+              onClick={handleDownloadFiltered}
+              className="flex items-center gap-1 px-3 py-2 text-xs sm:text-sm 
                 bg-indigo-100 hover:bg-indigo-200 
                 dark:bg-indigo-600/20 dark:hover:bg-indigo-600/40 
                 text-indigo-600 dark:text-indigo-300 
                 rounded-lg sm:rounded-xl transition"
-              >
-                Download Filtered
-              </button>
-            
-            </div>
+            >
+              Download Filtered
+            </button>
+
           </div>
-          <Filters setSearch={setSearch} setCategory={setCategory} setType={setType} />
-          {transactions.length === 0 ? (<TransactionTableSkeleton role={role} />) : (
-              <TransactionTable
-                transactions={filteredTransactions}
-                role={role}
-                onDelete={handleDelete}
-                onEdit={t => {
-                  setFormData(t);
-                  setEditId(t.id);
-                  setShowForm(true);
-                }}
-              />
-            )}
+        </div>
+        <Filters setSearch={setSearch} setCategory={setCategory} setType={setType} />
+        {transactions.length === 0 ? (<TransactionTableSkeleton role={role} />) : (
+          <TransactionTable
+            transactions={filteredTransactions}
+            role={role}
+            onDelete={handleDelete}
+            onEdit={t => {
+              setFormData(t);
+              setEditId(t.id);
+              setShowForm(true);
+            }}
+          />
+        )}
       </div>
       <footer className="mt-10 border-t border-gray-200 dark:border-gray-700 py-4">
-  <div className="container-p flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-    
-    {/* Left */}
-    <p>
-      © {new Date().getFullYear()} FinanceHub. All rights reserved.
-    </p>
+        <div className="container-p flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
 
-    {/* Right */}
-    <div className="flex gap-4">
-      <span className="hover:text-indigo-500 cursor-pointer">Privacy</span>
-      <span className="hover:text-indigo-500 cursor-pointer">Terms</span>
-      <span className="hover:text-indigo-500 cursor-pointer">Contact</span>
-    </div>
+          {/* Left */}
+          <p>
+            © {new Date().getFullYear()} FinanceHub. All rights reserved.
+          </p>
 
-  </div>
-</footer>      
-    
+          {/* Right */}
+          <div className="flex gap-4">
+            <span className="hover:text-indigo-500 cursor-pointer">Privacy</span>
+            <span className="hover:text-indigo-500 cursor-pointer">Terms</span>
+            <span className="hover:text-indigo-500 cursor-pointer">Contact</span>
+          </div>
+
+        </div>
+      </footer>
+
     </div>
   );
 };

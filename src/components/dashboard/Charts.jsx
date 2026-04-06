@@ -58,7 +58,7 @@ const CustomPieTooltip = ({ active, payload, data }) => {
   if (active && payload && payload.length) {
     const { name, value } = payload[0].payload;
 
-   
+
     const total = data.reduce((sum, item) => sum + item.value, 0);
 
     const percent = total ? (value / total) * 100 : 0;
@@ -91,7 +91,7 @@ const CustomPieTooltip = ({ active, payload, data }) => {
 
 
 const Charts = React.memo(({ lineData, year, pieData }) => {
-    console.log(lineData,pieData)
+  console.log(lineData, pieData)
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 container-p mb-10">
 
@@ -108,13 +108,13 @@ const Charts = React.memo(({ lineData, year, pieData }) => {
               <CartesianGrid stroke="#f3f4f6" strokeDasharray="3 3" />
 
               <XAxis
-                dataKey={year === "all" ? "year" : "month"} 
+                dataKey={year === "all" ? "year" : "month"}
                 tick={{ fontSize: 12 }} stroke="#99a1af"
               />
-              <YAxis domain={[-100, "auto"]} tick={{ fontSize: 12 }} stroke="#99a1af"/>
+              <YAxis domain={[-100, "auto"]} tick={{ fontSize: 12 }} stroke="#99a1af" />
 
               <Tooltip content={<CustomTooltip />} />
-              <Legend verticalAlign="bottom" iconType="circle" iconSize={8}  wrapperStyle={{ fontSize: "12px" }}/>
+              <Legend verticalAlign="bottom" iconType="circle" iconSize={8} wrapperStyle={{ fontSize: "12px" }} />
 
               <Line type="monotone" dataKey="income" stroke="#22c55e" strokeWidth={2} />
               <Line type="monotone" dataKey="expense" stroke="#ef4444" strokeWidth={2} />
@@ -131,7 +131,7 @@ const Charts = React.memo(({ lineData, year, pieData }) => {
         <p className="mb-4 text-gray-400 text-sm">
           Breakdown of your expenses
         </p>
-        
+
         {!pieData || pieData.length === 0 ? (
           <div className="flex justify-center items-center h-87.5 text-gray-400">
             No data available
@@ -150,7 +150,7 @@ const Charts = React.memo(({ lineData, year, pieData }) => {
                     <Cell key={index} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                
+
                 <Tooltip content={<CustomPieTooltip data={pieData} />} />
                 <Legend verticalAlign="bottom" iconType="circle" iconSize={8} wrapperStyle={{ fontSize: "12px" }} />
               </PieChart>
@@ -161,5 +161,5 @@ const Charts = React.memo(({ lineData, year, pieData }) => {
     </div>
   );
 });
-      
+
 export default Charts;
