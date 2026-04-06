@@ -7,9 +7,9 @@ const SummaryCards = ({ balance, totalIncome, totalExpense }) => {
 
       <div className="bg-white px-6 py-4 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-102 dark:bg-gray-700 dark:border border-gray-600">
         <div className="flex justify-between">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-7">
             <h2 className="text-gray-400 text-sm">Total Balance</h2>
-            <p className="text-2xl font-bold dark:text-white">
+            <p className="text-2xl font-bold dark:text-white whitespace-nowrap">
               ₹ {balance.toLocaleString()}
             </p>
           </div>
@@ -22,9 +22,9 @@ const SummaryCards = ({ balance, totalIncome, totalExpense }) => {
 
       <div className="bg-white px-6 py-4 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-102 dark:bg-gray-700 dark:border border-gray-600">
   <div className="flex justify-between">
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-7">
       <h2 className="text-gray-400 text-sm">Income</h2>
-      <p className="text-2xl font-bold dark:text-white">
+      <p className="text-2xl font-bold dark:text-white whitespace-nowrap">
         ₹ {totalIncome.toLocaleString()}
       </p>
     </div>
@@ -38,9 +38,9 @@ const SummaryCards = ({ balance, totalIncome, totalExpense }) => {
 
       <div className="bg-white px-6 py-4 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.10)] transition-transform duration-300 hover:scale-102 dark:bg-gray-700 dark:border border-gray-600">
   <div className="flex justify-between">
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-7">
       <h2 className="text-gray-400 text-sm">Expenses</h2>
-      <p className="text-2xl font-bold dark:text-white">
+      <p className="text-2xl font-bold dark:text-white whitespace-nowrap">
         ₹ {totalExpense.toLocaleString()}
       </p>
     </div>
