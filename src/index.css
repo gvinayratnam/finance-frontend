@@ -109,3 +109,9 @@ body {
     #374151 63%
   );
 }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+*:focus {
+  outline: none !important;
+}

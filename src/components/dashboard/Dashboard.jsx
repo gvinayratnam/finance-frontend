@@ -152,12 +152,12 @@ const Dashboard = () => {
           <p className="text-gray-500 sm:text-base text-xs">Welcome back! Here's your financial summary.</p>
         </div>
 
-        <div>
+        <div className="">
           {role === "admin" && (
             <>
               <button
                 onClick={() => setShowForm(true)}
-                className=" sm:px-3 px-2 py-2 text-xs sm:text-base bg-indigo-600 border hover:bg-indigo-700 text-white sm:rounded-xl rounded-lg sm:font-medium">
+                className=" sm:px-3 px-2 py-2 text-xs sm:text-base bg-indigo-600 border cursor-pointer hover:bg-indigo-700 text-white sm:rounded-xl rounded-lg sm:font-medium">
                 Add <span className="sm:inline hidden">Transaction</span>
               </button>
 
@@ -305,7 +305,7 @@ const Dashboard = () => {
                 bg-gray-200 hover:bg-gray-300 
                 dark:bg-gray-700 dark:hover:bg-gray-600 
                 text-gray-800 dark:text-white 
-                rounded-lg sm:rounded-xl transition"
+                rounded-lg sm:rounded-xl transition cursor-pointer"
             >
               Download All
             </button>
@@ -316,7 +316,7 @@ const Dashboard = () => {
                 bg-indigo-100 hover:bg-indigo-200 
                 dark:bg-indigo-600/20 dark:hover:bg-indigo-600/40 
                 text-indigo-600 dark:text-indigo-300 
-                rounded-lg sm:rounded-xl transition"
+                rounded-lg sm:rounded-xl transition cursor-pointer"
             >
               Download Filtered
             </button>

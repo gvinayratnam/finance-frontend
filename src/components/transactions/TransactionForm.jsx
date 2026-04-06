@@ -16,7 +16,7 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-lg sm:text-xl"
+            className="text-gray-400 cursor-pointer hover:text-gray-600 dark:hover:text-gray-200 text-lg sm:text-xl"
           >
             ✕
           </button>
@@ -44,7 +44,7 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <button
               onClick={() => handleChange({ target: { name: "type", value: "income" } })}
-              className={`w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-xl font-medium border transition-all ${
+              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${
                 formData.type === "income"
                   ? "border-green-500 text-green-600 bg-green-50"
                   : "border-gray-200 text-gray-500 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
@@ -55,7 +55,7 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
 
             <button
               onClick={() => handleChange({ target: { name: "type", value: "expense" } })}
-              className={`w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-xl font-medium border transition-all ${
+              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${
                 formData.type === "expense"
                   ? "border-red-400 text-red-500 bg-red-50"
                   : "border-gray-200 text-gray-500 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
@@ -67,7 +67,7 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
         </div>
 
         {/* Category */}
-        <div className="mb-3 sm:mb-4">
+        <div className="mb-3 sm:mb-4 ">
           <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Category
           </label>
@@ -75,7 +75,7 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full border rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full border cursor-pointer rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
           >
             <option value="">Select category</option>
             <optgroup label="── Income ──">
@@ -113,14 +113,14 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <button
             onClick={onClose}
-            className="w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-200 text-gray-600 dark:text-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium"
+            className="w-full cursor-pointer py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-200 text-gray-600 dark:text-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium"
           >
             Cancel
           </button>
 
           <button
             onClick={handleAdd}
-            className="w-full py-2.5 sm:py-3 text-sm sm:text-base rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-colors"
+            className="w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-colors"
           >
             {editId ? "Update" : "Add"}
           </button>

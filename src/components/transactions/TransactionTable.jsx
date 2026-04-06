@@ -108,13 +108,13 @@ const TransactionTable = ({ transactions, role, onDelete, onEdit }) => {
                   <td className="flex gap-3 py-4 justify-end pr-2">
                     <button
                       onClick={() => onEdit(t)}
-                      className="text-blue-400 hover:text-blue-600 hover:scale-110 transition-all duration-200"
+                      className="text-blue-400 hover:text-blue-600 hover:scale-110 transition-all duration-200 cursor-pointer"
                     >
                       <FiEdit2 size={18} />
                     </button>
                     <button
                       onClick={() => onDelete(t.id)}
-                      className="text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200"
+                      className="text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200 cursor-pointer"
                     >
                       <FiTrash2 size={18} />
                     </button>
@@ -178,15 +178,15 @@ const TransactionTable = ({ transactions, role, onDelete, onEdit }) => {
                 <div className="flex justify-end gap-3 mt-3">
                   <button
                     onClick={() => onEdit(t)}
-                    className="text-blue-400 hover:text-blue-600 hover:scale-110 transition-all duration-200"
+                    className="text-blue-400  hover:text-blue-600  hover:scale-110 transition-all duration-200"
                   >
-                    <FiEdit2 size={18} />
+                    <FiEdit2 size={18} className=""/>
                   </button>
                   <button
                     onClick={() => onDelete(t.id)}
-                    className="text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200"
+                    className="text-red-400 hover:text-red-600 hover:scale-110 transition-all duration-200 "
                   >
-                    <FiTrash2 size={18} />
+                    <FiTrash2 size={18} className=""/>
                   </button>
                 </div>
               )}
@@ -205,7 +205,7 @@ const TransactionTable = ({ transactions, role, onDelete, onEdit }) => {
             bg-gray-200 text-gray-800 
             dark:bg-gray-600 dark:text-white 
             hover:bg-gray-300 dark:hover:bg-gray-500 
-            disabled:opacity-50 disabled:cursor-not-allowed transition"
+            disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
           >
             Prev
           </button>
@@ -221,7 +221,7 @@ const TransactionTable = ({ transactions, role, onDelete, onEdit }) => {
             bg-gray-200 text-gray-800 
             dark:bg-gray-600 dark:text-white 
             hover:bg-gray-300 dark:hover:bg-gray-500 
-            disabled:opacity-50 disabled:cursor-not-allowed transition"
+            disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
           >
             Next
           </button>
