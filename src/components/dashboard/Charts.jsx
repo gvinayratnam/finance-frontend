@@ -13,7 +13,20 @@ import {
   Legend,
 } from "recharts";
 
-const COLORS = ["#22c55e", "#ef4444", "#3b82f6", "#f59e0b", "#8b5cf6"];
+const COLORS = [
+  "#22c55e", // green
+  "#ef4444", // red
+  "#3b82f6", // blue
+  "#f59e0b", // orange
+  "#8b5cf6", // purple
+  "#06b6d4", // cyan
+  "#84cc16", // lime
+  "#f97316", // deep orange
+  "#ec4899", // pink
+  "#14b8a6", // teal
+  "#a855f7", // violet
+  "#eab308"  // yellow
+];
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
