@@ -91,7 +91,7 @@ const Charts = React.memo(({ lineData, year, pieData }) => {
 
         <div className="">
           <ResponsiveContainer width="100%" height={320}>
-            <LineChart data={lineData}   margin={{ top: 5, right: 15, left: -15, bottom: 5 }}>
+            <LineChart data={lineData}   >
               <CartesianGrid stroke="#f3f4f6" strokeDasharray="3 3" />
 
               <XAxis
