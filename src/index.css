@@ -115,3 +115,6 @@ body {
 *:focus {
   outline: none !important;
 }
+.dark .custom-select-dropdown .ant-select-item-group {
+  color: #9ca3af !important; /* gray-400 */
+}

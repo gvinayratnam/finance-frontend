@@ -1,9 +1,19 @@
 import React from "react";
+import { Select } from "antd";
+import { useEffect } from "react";
+const { Option, OptGroup } = Select;
 
 const CATEGORIES_INCOME = ["Salary", "Freelance", "Investment"];
 const CATEGORIES_EXPENSE = ["Shopping", "Food", "Utilities", "Entertainment", "Healthcare", "Transport"];
 
 const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose }) => {
+   useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-2 sm:px-4">
 
@@ -44,51 +54,57 @@ const TransactionForm = ({ formData, handleChange, handleAdd, editId, onClose })
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <button
               onClick={() => handleChange({ target: { name: "type", value: "income" } })}
-              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${
-                formData.type === "income"
+              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${formData.type === "income"
                   ? "border-green-500 text-green-600 bg-green-50"
                   : "border-gray-200 text-gray-500 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
-              }`}
+                }`}
             >
               Income
             </button>
 
             <button
               onClick={() => handleChange({ target: { name: "type", value: "expense" } })}
-              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${
-                formData.type === "expense"
+              className={`w-full py-2.5 sm:py-3 cursor-pointer text-sm sm:text-base rounded-xl font-medium border transition-all ${formData.type === "expense"
                   ? "border-red-400 text-red-500 bg-red-50"
                   : "border-gray-200 text-gray-500 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
-              }`}
+                }`}
             >
               Expense
             </button>
           </div>
         </div>
 
-        {/* Category */}
-        <div className="mb-3 sm:mb-4 ">
+        <div className="mb-3 sm:mb-4">
           <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Category
           </label>
-          <select
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            className="w-full border cursor-pointer rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+
+          <Select
+            value={formData.category || undefined}
+            onChange={(value) =>
+              handleChange({ target: { name: "category", value } })
+            }
+            placeholder="Select category"
+            className="w-full"
+            size="large"
+            popupClassName="custom-select-dropdown"
           >
-            <option value="">Select category</option>
-            <optgroup label="── Income ──">
-              {CATEGORIES_INCOME.map(c => (
-                <option key={c} value={c}>{c}</option>
+            <OptGroup label="── Income ──">
+              {CATEGORIES_INCOME.map((c) => (
+                <Option key={c} value={c}>
+                  {c}
+                </Option>
               ))}
-            </optgroup>
-            <optgroup label="── Expense ──">
-              {CATEGORIES_EXPENSE.map(c => (
-                <option key={c} value={c}>{c}</option>
+            </OptGroup>
+
+            <OptGroup label="── Expense ──">
+              {CATEGORIES_EXPENSE.map((c) => (
+                <Option key={c} value={c}>
+                  {c}
+                </Option>
               ))}
-            </optgroup>
-          </select>
+            </OptGroup>
+          </Select>
         </div>
 
         {/* Amount */}
